@@ -12,7 +12,7 @@ app.get('/data.json', (req, res) => {
 
 // Serve the HTML file
 app.get('/', (req, res) => {
-    res.sendfile('./rndFood.html');
+    res.sendFile(path.join(__dirname, 'public', 'rndfood.html'));
 });
 
 // Start the server
