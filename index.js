@@ -2,18 +2,17 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Serve static files from the 'outputs' directory
-app.use('/outputs', express.static(path.join(__dirname, 'outputs')));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve the data.json file
 app.get('/data.json', (req, res) => {
-    res.sendFile(path.join(__dirname, 'data.json'));
+    res.sendFile(path.join(__dirname, 'public', 'data.json'));
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
 // Serve the HTML file
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'rndfood.html'));  // Ensure this path is correct
+    res.sendFile(path.join(__dirname, 'public', 'rndfood.html'));
 });
 
 // Start the server
