@@ -5,9 +5,6 @@ const app = express();
 // Serve static files from the 'outputs' directory
 app.use('/outputs', express.static(path.join(__dirname, 'outputs')));
 
-// Serve static files from the 'public' directory (for HTML, CSS, and JS)
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Serve the data.json file
 app.get('/data.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data.json'));
