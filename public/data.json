@@ -1,6 +1,6 @@
 [
     { "name": "ผัดไท", "image": "/outputs/padthai.jpg", "probability": 1 },
-    { "name": "ส้มตำ", "image": "/outputs/som_tum.jpg", "probability": 1 },
+    { "name": "ตำไทย", "image": "/outputs/som_tum.jpg", "probability": 1 },
     { "name": "ต้มยำกุ้ง", "image": "/outputs/tom_yum_goong.jpg", "probability": 1 },
     { "name": "แกงเขียวหวาน", "image": "/outputs/gaeng_keow_wan.jpg", "probability": 1 },
     { "name": "หมูทอดกระเทียม", "image": "/outputs/moo_tod_garlic.jpg", "probability": 1 },
