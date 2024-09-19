@@ -10,6 +10,7 @@ app.get('/data.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'data.json'));
 });
 
+app.use(express.static(path.join(__dirname, 'public')));
 // Serve the HTML file
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'rndfood.html'));  // Ensure this path is correct
