@@ -11,9 +11,9 @@ app.get('/data.json', (req, res) => {
 });
 
 // Serve the HTML file
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'rndfood.html'));
-});
+app.get('*', (req, res) => {
+    res.sendFile('rndFood.html', {root: 'public'});
+  });
 
 // Start the server
 app.listen(3000, () => {
