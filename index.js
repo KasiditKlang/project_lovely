@@ -11,7 +11,7 @@ app.get('/data.json', (req, res) => {
 });
 
 // Serve the HTML file
-app.get('/rndFood.html', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'rndfood.html'));
 });
 
