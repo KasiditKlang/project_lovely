@@ -1,0 +1,6 @@
+[
+    { "name": "Pad Thai", "image": "/outputs/padthai.jpg", "probability": 1 },
+    { "name": "Som Tum", "image": "/outputs/som_tum.jpg", "probability": 1 },
+    { "name": "Tom Yum Goong", "image": "/outputs/tom_yum_goong.jpg", "probability": 1 },
+    { "name": "Gaeng Keow Wan", "image": "/outputs/gaeng_keow_wan.jpg", "probability": 1 }
+]

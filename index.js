@@ -1,19 +1,22 @@
- const express = require('express')
-const app = express()
-const PORT = 4000
+const express = require('express');
+const path = require('path');
+const app = express();
 
-app.listen(PORT, () => {
-    console.log(`API Listening on PORT ${PORT}`)
-})
+// Serve static files from the 'outputs' directory
+app.use('/outputs', express.static(path.join(__dirname, 'outputs')));
 
-app.get('/', (req, res)=> {
-res.send('This is my API running...')
-})
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));  // For HTML, CSS, and JS
 
-app.get('/about', (req, res) => {
-    res.send(
-        'This is my about route'
-    )
-})
+// Serve the data.json file
+app.use('/data.json', express.static(path.join(__dirname, 'data.json')));
 
-module.exports = app
+// Serve the HTML file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'rndfood.html'));  // Ensure this path is correct
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
