@@ -193,7 +193,9 @@ function randomMeal() {
         if (random < meal.probability) {
             currentMeal = meal;
             document.getElementById("meal-name").textContent = meal.name;
-            document.getElementById("meal-image").src = meal.image;
+            document.getElementById("meal-image").style.src = meal.image;
+            document.getElementById("meal-image").style.width = "70%";
+            document.getElementById("meal-image").style.height = "auto";   
             document.getElementById("confirm-btn").style.display = "inline-block"; // Show Confirm button
             return;
         }
