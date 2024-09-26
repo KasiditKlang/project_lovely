@@ -136,12 +136,9 @@
         border-radius: 5px;
     }
     .meal-image {
-    width: 70%; /* Adjust the width to 50% of its container */
-    height: auto; /* Maintain the aspect ratio */
-    max-width: 400px; /* Optionally, limit the maximum width */
-    display: block; /* Ensure it's treated as a block element */
-}
-
+            width: 50%; /* Adjust the width to 50% of its container */
+            height: auto; /* Maintain the aspect ratio */
+        }
     </style>
 </head>
 <body>
@@ -193,7 +190,7 @@ function randomMeal() {
         if (random < meal.probability) {
             currentMeal = meal;
             document.getElementById("meal-name").textContent = meal.name;
-            document.getElementById("meal-image").style.src = meal.image;
+            document.getElementById("meal-image").src = meal.image;
             document.getElementById("confirm-btn").style.display = "inline-block"; // Show Confirm button
             return;
         }
