@@ -207,7 +207,7 @@ function addCustomMeal() {
         reader.onload = function(e) {
             meals.push({
                 name: mealNameInput,
-                image: e.target.result, // Base64 image
+                image: e.target.result,
                 probability: 1 // New meal starts with normal probability
             });
             alert("Meal added successfully!");
