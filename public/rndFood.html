@@ -41,7 +41,6 @@
         height: auto;
         margin: 20px auto;
         border-radius: 15px;
-        border-width: 5%;
     }
 
     .button-container {
@@ -136,16 +135,16 @@
         margin-bottom: 5px;
         border-radius: 5px;
     }
-    /* #meal-image {
-        width: 50%;
-        height: 50%;
-    } */
+    .meal-image {
+            width: 50%; /* Adjust the width to 50% of its container */
+            height: auto; /* Maintain the aspect ratio */
+        }
     </style>
 </head>
 <body>
     <div class="app-container">
         <h1 id="meal-name">Click to Randomize</h1>
-        <img id="meal-image" src="outputs/logo.png" alt="Meal Image" class="meal-image">
+        <img id="meal-image" src="outputs/logo.png" alt="logo" class="meal-image">
         <div class="button-container">
             <button class="random-btn" onclick="randomMeal()">Randomize</button>
             <button class="confirm-btn" id="confirm-btn" onclick="confirmMeal()">Confirm</button>
@@ -211,14 +210,25 @@ function addCustomMeal() {
     if (mealNameInput && mealImageInput) {
         const reader = new FileReader();
         reader.onload = function(e) {
+            // Add the new meal to the list of meals
             meals.push({
                 name: mealNameInput,
                 image: e.target.result,
                 probability: 1 // New meal starts with normal probability
             });
+            
+            // Show the new meal details (name and image) on the page
+            document.getElementById("meal-name").textContent = mealNameInput;
+            document.getElementById("meal-image").src = e.target.result;
+
+            // Show a success message
             alert("Meal added successfully!");
+
+            // Reset the form inputs
             document.getElementById("meal-name-input").value = "";
             document.getElementById("meal-image-input").value = "";
+
+            // Hide the add meal form
             toggleAddMenuForm();
         };
         reader.onerror = function() {
@@ -229,6 +239,7 @@ function addCustomMeal() {
         alert("Please enter a meal name and upload an image.");
     }
 }
+
 
 function confirmMeal() {
     if (currentMeal) {
