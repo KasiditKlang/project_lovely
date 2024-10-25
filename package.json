@@ -11,5 +11,8 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@ljharb/tsconfig": "^0.2.0"
   }
 }
