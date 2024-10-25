@@ -136,12 +136,9 @@
         border-radius: 5px;
     }
     .meal-image {
-    width: 70%; /* Adjust the width to 50% of its container */
-    height: auto; /* Maintain the aspect ratio */
-    max-width: 400px; /* Optionally, limit the maximum width */
-    display: block; /* Ensure it's treated as a block element */
-}
-
+            width: 230px; /* Adjust the width to 50% of its container */
+            height: auto; /* Maintain the aspect ratio */
+        }
     </style>
 </head>
 <body>
@@ -213,14 +210,25 @@ function addCustomMeal() {
     if (mealNameInput && mealImageInput) {
         const reader = new FileReader();
         reader.onload = function(e) {
+            // Add the new meal to the list of meals
             meals.push({
                 name: mealNameInput,
                 image: e.target.result,
                 probability: 1 // New meal starts with normal probability
             });
+            
+            // Show the new meal details (name and image) on the page
+            document.getElementById("meal-name").textContent = mealNameInput;
+            document.getElementById("meal-image").src = e.target.result;
+
+            // Show a success message
             alert("Meal added successfully!");
+
+            // Reset the form inputs
             document.getElementById("meal-name-input").value = "";
             document.getElementById("meal-image-input").value = "";
+
+            // Hide the add meal form
             toggleAddMenuForm();
         };
         reader.onerror = function() {
@@ -231,6 +239,7 @@ function addCustomMeal() {
         alert("Please enter a meal name and upload an image.");
     }
 }
+
 
 function confirmMeal() {
     if (currentMeal) {
