@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Text Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Insert Image and Text</h1>
+        
+        <form id="uploadForm">
+            <label for="imageInput">Select an image:</label><br>
+            <input type="file" id="imageInput" accept="image/*"><br><br>
+
+            <label for="textInput">Enter text:</label><br>
+            <input type="text" id="textInput" placeholder="Your text here"><br><br>
+
+            <button type="button" onclick="displayContent()">Submit</button>
+        </form>
+
+        <div id="preview">
+            <h2>Preview</h2>
+            <img id="imagePreview" alt="Image will be displayed here">
+            <p id="textPreview">Text will be displayed here</p>
+        </div>
+    </div>
+
+    <script>
+        function displayContent() {
+            // Get the file input and display the image
+            const imageInput = document.getElementById('imageInput');
+            const imagePreview = document.getElementById('imagePreview');
+
+            const file = imageInput.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function() {
+                imagePreview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = "";
+            }
+
+            // Get the text input and display the text
+            const textInput = document.getElementById('textInput').value;
+            document.getElementById('textPreview').innerText = textInput;
+        }
+    </script>
+
+</body>
+</html>
