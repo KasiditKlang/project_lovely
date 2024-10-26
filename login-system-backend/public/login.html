@@ -6,7 +6,7 @@
     <title>Login</title>
     <!-- Include Istok Web font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Istok+Web&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login2.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="container">
@@ -31,20 +31,19 @@
                     <input type="checkbox" id="remember" name="remember">
                     <span>Remember me</span>
                 </label>
-                <a href="#" class="forgot-password">Forgot password?</a>
+                <!-- <a href="#" class="forgot-password">Forgot password?</a> -->
             </div>
 
             <!-- Sign In button -->
             <button type="submit" class="signin-button">SIGN IN</button>
         </form>
 
-        <!-- OR separator -->
-        <p class="or-text">--------------------OR--------------------</p>
+        
+        <!-- <p class="or-text">--------------------OR--------------------</p>
 
-        <!-- Sign in with Google button -->
         <button class="google-signin-button">
             <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" class="google-logo"> Sign in with Google
-        </button>
+        </button> -->
 
         <!-- Register section -->
         <div class="register">
@@ -52,35 +51,8 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('login-form').addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent page reload
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                const response = await fetch('http://localhost:5000/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password }),
-                });
-
-                const result = await response.json();
-                if (response.ok) {
-                    alert('Login successful!');
-                    // Store token if needed
-                    localStorage.setItem('authToken', result.token);
-                    // Redirect to dashboard or desired page
-                    window.location.href = 'rndFood.html';
-                } else {
-                    alert(result.error || 'Login failed. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
-            }
-        });
+    <script src="login.js">
+        
     </script>
 </body>
 </html>
